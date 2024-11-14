@@ -4,9 +4,9 @@ DownloadFacil é uma aplicação web simples que permite aos usuários baixar v�
 
 ### Funcionalidades
 
--Download de Vídeos: Permite baixar vídeos em formato MP4 com a melhor qualidade disponível.
--Download de Áudios: Converte e baixa o áudio de vídeos em formato MP3.
--Simples e rápido: Interface de fácil uso, onde o usuário só precisa fornecer a URL do vídeo.
+*Download de Vídeos: Permite baixar vídeos em formato MP4 com a melhor qualidade disponível.
+*Download de Áudios: Converte e baixa o áudio de vídeos em formato MP3.
+*Simples e rápido: Interface de fácil uso, onde o usuário só precisa fornecer a URL do vídeo.
 
 ### Pré-requisitos
 Antes de começar, você precisará ter os seguintes itens instalados em seu ambiente de desenvolvimento:
