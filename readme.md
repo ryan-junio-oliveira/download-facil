@@ -54,8 +54,7 @@ Se necessário, configure o servidor web (Apache/Nginx) para apontar para o dire
 4. Clique no botão Baixar e o download será iniciado automaticamente com a melhor qualidade disponível.
 
 Estrutura de Diretórios
-bash
-Copy code
+```bash
 download-facil/
 ├── Downloads/                # Diretório onde os arquivos baixados serão salvos
 ├── src/                      # Código-fonte do projeto
@@ -66,6 +65,8 @@ download-facil/
 ├── composer.json             # Dependências do Composer
 ├── index.php                 # Arquivo principal para inicializar a aplicação
 └── README.md                 # Este arquivo
+└── public/index
+```
 
 ### Contribuindo
 Se você deseja contribuir com este projeto, fique à vontade para abrir uma pull request ou reportar problemas através dos issues. Sua contribuição é muito bem-vinda!
