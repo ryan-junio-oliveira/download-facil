@@ -24,15 +24,18 @@ class DownloadController
                     mkdir($outputDir, 0777, true);
                 }
 
+                // Limpa todos os arquivos no diretório de Downloads antes de gerar um novo
+                $this->clearDownloadDirectory($outputDir);
+
                 // Monta o comando yt-dlp com os parâmetros recebidos
                 $command = "yt-dlp -f ";
 
                 // Define as opções para MP3 e MP4
                 if ($format === 'mp3') {
-                    // Para mp3, converte o arquivo
+                    // Para mp3, escolhe o melhor áudio e converte para mp3
                     $command .= "bestaudio --extract-audio --audio-format mp3 ";
                 } else {
-                    // Para vídeo, usa a melhor qualidade disponível
+                    // Para vídeo, escolhe o melhor vídeo e áudio
                     $command .= "bestvideo+bestaudio ";
                 }
 
@@ -60,6 +63,28 @@ class DownloadController
             // Em caso de erro, renderiza a view com a mensagem de erro
             $data = ['message' => $e->getMessage()];
             View::render('download', $data);
+        }
+    }
+
+    // Função para limpar todos os arquivos na pasta Downloads
+    private function clearDownloadDirectory($dir)
+    {
+        // Verifica se o diretório existe
+        if (!is_dir($dir)) {
+            throw new \Exception("Diretório de downloads não encontrado!");
+        }
+
+        // Varrendo o diretório e pegando os arquivos
+        $files = scandir($dir);
+
+        // Filtra apenas os arquivos (ignora diretórios como "." e "..")
+        $files = array_filter($files, function ($file) use ($dir) {
+            return is_file($dir . $file);
+        });
+
+        // Deleta todos os arquivos encontrados
+        foreach ($files as $file) {
+            unlink($dir . $file); // Exclui o arquivo
         }
     }
 
@@ -93,12 +118,6 @@ class DownloadController
 
             // Caminho completo do arquivo mais recente
             $filePath = $outputDir . $latestFile;
-
-            // Exclui o arquivo mais antigo (se existir) antes de iniciar o download
-            if (count($files) > 1) {
-                $oldestFile = $files[count($files) - 1]; // O último arquivo é o mais antigo
-                unlink($outputDir . $oldestFile); // Exclui o arquivo mais antigo
-            }
 
             // Verifica se o arquivo mais recente existe
             if (!file_exists($filePath)) {
