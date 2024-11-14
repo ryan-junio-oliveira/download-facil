@@ -1,4 +1,4 @@
-# DownloadFacil
+# Download Facil
 
 DownloadFacil é uma aplicação web simples que permite aos usuários baixar vídeos ou músicas de plataformas como YouTube. O aplicativo utiliza o yt-dlp para fazer o download de conteúdo em diferentes formatos, como MP4 e MP3, com a melhor qualidade disponível.
 
