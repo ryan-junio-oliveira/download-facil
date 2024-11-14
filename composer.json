@@ -1,0 +1,17 @@
+{
+    "name": "ryan/download-facil",
+    "autoload": {
+        "psr-4": {
+            "Ryan\\DownloadFacil\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ryan-junio-oliveira",
+            "email": "ryan.oliveira.personal@outlook.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^7.1"
+    }
+}
